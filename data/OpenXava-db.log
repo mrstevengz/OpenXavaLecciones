@@ -1,18 +1,2 @@
-/*C2*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C3*/SET SCHEMA PUBLIC
-alter table Factura add column oid varchar(32) not null
 /*C4*/SET SCHEMA PUBLIC
-alter table Factura add column oid varchar(32) not null
-/*C3*/alter table Factura add column cliente_numero integer not null
-create table Factura_detalles (Factura_oid varchar(32) not null, cantidad integer not null, producto_numero integer)
-/*C4*/alter table Factura add constraint FKmd10sg74xw8mq3d2m9k2kxual foreign key (cliente_numero) references Cliente
-alter table Factura_detalles add constraint FKe3f314u9v7uw8aktwkjo8473t foreign key (producto_numero) references Producto
-alter table Factura_detalles add constraint FKpl16p1cpo7r84s75asx5db9nq foreign key (Factura_oid) references Factura
-/*C3*/INSERT INTO CATEGORIA VALUES('8a89e2cd9a4bb0b1019a4bb19cf80000','Productos Chinos')
-COMMIT
-INSERT INTO PRODUCTO VALUES(1,'Cajas Chinas',NULL,'',10000.00,'8a89e2cd9a4bb0b1019a4bb19cf80000')
-COMMIT
-DELETE FROM CLIENTE WHERE NUMERO=1
-INSERT INTO CLIENTE VALUES(1,'Steven Sequeira',10001,'Managua','Managua','Managua')
-COMMIT
+DISCONNECT

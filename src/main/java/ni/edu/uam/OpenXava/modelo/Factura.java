@@ -15,7 +15,7 @@ import java.util.Collection;
 @Setter
 
 @View(members =
-        "anyo, numero, fecha;" + "cliente;" + "detalles;" + "observaciones")
+        "anio, numero, fecha;" + "cliente;" + "detalles;" + "observaciones")
 
 public class Factura {
     @Id
@@ -27,7 +27,7 @@ public class Factura {
 
     @Column(length = 4)
     @DefaultValueCalculator(CurrentYearCalculator.class)
-    int year;
+    int anio;
 
     @Column(length = 6)
     @DefaultValueCalculator(value = CalcularSiguienteNumeroParaAnio.class, properties =@PropertyValue(name = "anio"))
