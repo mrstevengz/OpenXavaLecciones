@@ -13,6 +13,10 @@ import java.util.Collection;
 
 @Entity @Getter
 @Setter
+
+@View(members =
+        "anyo, numero, fecha;" + "cliente;" + "detalles;" + "observaciones")
+
 public class Factura {
     @Id
     @GeneratedValue(generator = "system-uuid")
@@ -37,6 +41,7 @@ public class Factura {
     String observaciones;
 
     @ManyToOne (fetch = FetchType.LAZY, optional = false)
+    @ReferenceView("Simple")
     Cliente cliente;
 
     @ElementCollection
